@@ -28,7 +28,7 @@ def separate_receipts_two(receipts) -> dict:
     for receipt in receipts:
         if receipt['consolidated']:
             receipts_dict['consolidated'].append(receipt)
-        elif not receipt['consolidated']:
+        else:
             receipts_dict['not_consolidated'].append(receipt)
     return receipts_dict
 
