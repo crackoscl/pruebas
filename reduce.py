@@ -10,8 +10,8 @@ receipts = [
     {'id': 6, 'consolidated': False},
 ]
 
-
 # EJEMPLO 1
+
 
 def reducer_receipts(acc, receipts):
     key = 'consolidated' if receipts['consolidated'] else 'not_consolidated'
@@ -58,6 +58,7 @@ def separate_receipts_four(receipts):
 
 
 def separate_receipts_five(receipts):
+
     receipts_dict = defaultdict(list)
     for receipt in receipts:
         key = 'consolidated' if receipt['consolidated'] else 'not_consolidated'
@@ -65,4 +66,14 @@ def separate_receipts_five(receipts):
     return receipts_dict
 
 
-print(separate_receipts_five(receipts))
+# EJEMPLO 6
+
+def separate_receipts_six(receipts):
+    receipts_dict = {}
+    for receipt in receipts:
+        key = 'consolidated' if receipt['consolidated'] else 'not_consolidated'
+        receipts_dict.setdefault(key, []).append(receipt)
+    return receipts_dict
+
+
+print(separate_receipts_six(receipts))
